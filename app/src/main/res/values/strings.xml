@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Butterknife Example</string>
+
+	<string name="more_to_go_count">%d more to go!</string>
+	<string name="completed">Completed!</string>
+	<string name="reset">Reset</string>
+</resources>
