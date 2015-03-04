@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.ButterKnife;
+
 public class CheckBoxGridLayout extends GridLayout {
 	// TODO: Make this configurable in XML and code
 	private static final int WIDTH = 3;
@@ -57,10 +59,7 @@ public class CheckBoxGridLayout extends GridLayout {
 	}
 
 	public void reset() {
-		for (CheckBox checkBox : checkBoxes) {
-			checkBox.setChecked(false);
-			checkBox.setEnabled(true);
-		}
+		ButterKnife.apply(checkBoxes, RESET);
 	}
 
 	public void setOnChangedListener(OnChangedListener listener) {
@@ -131,9 +130,7 @@ public class CheckBoxGridLayout extends GridLayout {
 			}
 
 			if (uncheckedCount == 0) {
-				for (CheckBox checkBox : checkBoxes) {
-					checkBox.setEnabled(false);
-				}
+				ButterKnife.apply(checkBoxes, DISABLED);
 			}
 		}
 
@@ -142,7 +139,7 @@ public class CheckBoxGridLayout extends GridLayout {
 				return;
 			}
 
-			CheckBox box = (CheckBox) findViewById(viewId);
+			CheckBox box = ButterKnife.findById(CheckBoxGridLayout.this, viewId);
 			box.setChecked(!box.isChecked());
 		}
 	};
@@ -150,4 +147,19 @@ public class CheckBoxGridLayout extends GridLayout {
 	public interface OnChangedListener {
 		void onChanged(int uncheckedCount);
 	}
+
+	private static final ButterKnife.Action<View> DISABLED = new ButterKnife.Action<View>() {
+		@Override
+		public void apply(View view, int index) {
+			view.setEnabled(false);
+		}
+	};
+
+	private static final ButterKnife.Action<CheckBox> RESET = new ButterKnife.Action<CheckBox>() {
+		@Override
+		public void apply(CheckBox view, int index) {
+			view.setChecked(false);
+			view.setEnabled(true);
+		}
+	};
 }

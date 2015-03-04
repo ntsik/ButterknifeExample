@@ -2,11 +2,17 @@ package com.ntsikerdanos.butterknifeexample;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
+
 public class MainActivity extends Activity {
+	@InjectView(R.id.grid)
 	CheckBoxGridLayout grid;
+
+	@InjectView(R.id.status)
 	TextView status;
 
 	@Override
@@ -15,17 +21,9 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.activity_main);
 
-		grid = (CheckBoxGridLayout) findViewById(R.id.grid);
-		status = (TextView) findViewById(R.id.status);
+		ButterKnife.inject(this);
 
 		resetStatus();
-
-		findViewById(R.id.reset).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				reset();
-			}
-		});
 
 		grid.setOnChangedListener(new CheckBoxGridLayout.OnChangedListener() {
 			@Override
@@ -35,7 +33,8 @@ public class MainActivity extends Activity {
 		});
 	}
 
-	public void reset() {
+	@OnClick(R.id.reset)
+	protected void reset() {
 		grid.reset();
 
 		resetStatus();
