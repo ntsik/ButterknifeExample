@@ -5,85 +5,15 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	tools:context=".MainActivity"
 >
-	<android.support.v7.widget.GridLayout
+	<com.ntsikerdanos.butterknifeexample.CheckBoxGridLayout
 		android:id="@+id/grid"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_centerInParent="true"
-		app:orientation="horizontal"
 		app:useDefaultMargins="true"
-		tools:context=".MainActivity"
-	>
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox1"
-			android:nextFocusDown="@+id/checkbox4"
-			android:nextFocusRight="@+id/checkbox2"
-		/>
-
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox2"
-			android:nextFocusDown="@+id/checkbox5"
-			android:nextFocusLeft="@+id/checkbox1"
-			android:nextFocusRight="@+id/checkbox3"
-		/>
-
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox3"
-			android:nextFocusDown="@+id/checkbox6"
-			android:nextFocusLeft="@+id/checkbox2"
-		/>
-
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox4"
-			android:nextFocusDown="@+id/checkbox7"
-			android:nextFocusRight="@+id/checkbox5"
-			android:nextFocusUp="@+id/checkbox1"
-		/>
-
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox5"
-			android:nextFocusDown="@+id/checkbox8"
-			android:nextFocusLeft="@+id/checkbox4"
-			android:nextFocusRight="@+id/checkbox6"
-			android:nextFocusUp="@+id/checkbox2"
-		/>
-
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox6"
-			android:nextFocusDown="@+id/checkbox9"
-			android:nextFocusLeft="@+id/checkbox5"
-			android:nextFocusUp="@+id/checkbox3"
-		/>
-
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox7"
-			android:nextFocusRight="@+id/checkbox8"
-			android:nextFocusUp="@+id/checkbox4"
-		/>
-
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox8"
-			android:nextFocusLeft="@+id/checkbox7"
-			android:nextFocusRight="@+id/checkbox9"
-			android:nextFocusUp="@+id/checkbox5"
-		/>
-
-		<CheckBox
-			style="@style/GridCheckBox"
-			android:id="@+id/checkbox9"
-			android:nextFocusLeft="@+id/checkbox8"
-			android:nextFocusUp="@+id/checkbox6"
-		/>
-	</android.support.v7.widget.GridLayout>
+	/>
 
 	<LinearLayout
 		android:layout_width="match_parent"
